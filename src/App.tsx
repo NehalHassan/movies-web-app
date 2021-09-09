@@ -1,6 +1,14 @@
-import React from 'react';
+/** @jsxImportSource @emotion/react */
+import { jsx } from '@emotion/react'
+import styled from '@emotion/styled';
 import logo from './logo.svg';
 import './App.css';
+
+const PinkButton = styled.div({
+  height:200,
+  width:200,
+  background:'pink'
+});
 
 function App() {
   return (
@@ -8,7 +16,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code css={{color:'red'}}>src/App.tsx</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -19,6 +27,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <PinkButton/>
     </div>
   );
 }
