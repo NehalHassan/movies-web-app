@@ -12,6 +12,9 @@ ReactDOM.render(
                 <Route exact path="/">
                     <MoviesHomePage />
                 </Route>
+                <Route exact path="/movie/:listType">
+                    <MoviesHomePage />
+                </Route>
                 <Route path="/movie">
                     <Movie />
                 </Route>

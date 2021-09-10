@@ -69,9 +69,9 @@ const Header = () => {
             >
                 <Logo width={isMobile ? 80 : 154} height={64} />
                 <ul css={{ flex: 1, listStyle: 'none', margin: 'auto', paddingLeft: 24 }}>
-                    <MenuItem to="/" text="Movies" />
-                    <MenuItem to="/movie" text="popular" />
-                    <MenuItem to="/" text="upcoming" />
+                    <MenuItem to="/movie/now-playing" text="Playing Now" />
+                    <MenuItem to="/movie/upcoming" text="Upcoming" />
+                    <MenuItem to="/movie/top-rated" text="Top Rated" />
                 </ul>
             </div>
         </HeaderWrapper>

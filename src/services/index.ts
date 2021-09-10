@@ -5,7 +5,7 @@ const apiKey = '4f298a53e552283bee957836a529baec';
 const url = 'https://api.themoviedb.org/3';
 
 export const fetchMovies = async ({ listType, page }: { listType?: ApiMoviesListTypes; page?: number }) => {
-    const playingNowUrl = `${url}/movie/${listType ?? 'now_playing'}`;
+    const playingNowUrl = `${url}/movie/${listType ?? 'popular'}`;
     const posterUrl = 'https://image.tmdb.org/t/p/original/';
 
     try {

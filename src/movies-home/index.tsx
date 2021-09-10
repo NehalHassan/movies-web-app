@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useMedia } from 'react-media';
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Theme, Colors } from '../theme';
 import { Header } from '../components/header';
@@ -15,14 +15,17 @@ export const MoviesHomePage = () => {
     const [state, setListState] = useState<'loading' | 'loaded' | 'failed'>('loading');
     const [moviesList, setMoviesList] = useState<MovieCardType[]>([]);
 
+    const { listType } = useParams<any>();
+
     useEffect(() => {
-        fetchMovies({})
+        setListState('loading');
+        fetchMovies({ listType: listType?.replace('-', '_') ?? undefined })
             .then((list) => {
                 setMoviesList(list);
                 setListState('loaded');
             })
             .catch(() => setListState('failed'));
-    }, []);
+    }, [listType]);
 
     return (
         <>
