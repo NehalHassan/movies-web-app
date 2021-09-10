@@ -1,3 +1,3 @@
 export const Movie = () => {
-    return <p>movie by movieID</p>
-}
+    return <p>movie by movieID</p>;
+};
