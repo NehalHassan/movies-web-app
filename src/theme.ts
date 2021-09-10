@@ -6,7 +6,7 @@ enum Theme {
 enum Colors {
     secondaryColor = '#01b4e4',
     white = '#fff',
-
+    gray = 'rgba(0,0,0,0.6)',
     scrollerGrey = 'rgb(219,219,219)',
     lightGrey = 'rgb(227,227,227)',
     darkerGrey = 'rgb(200,200,200)',

@@ -1,59 +1,28 @@
 /** @jsxImportSource @emotion/react */
+import { useEffect, useState } from 'react';
+import { useMedia } from 'react-media';
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import { Theme, Colors } from '../theme';
-import { ReactComponent as Logo } from './tmvd-logo.svg';
-import { useMedia } from 'react-media';
 import { Header } from '../components/header';
+import { fetchMovies } from '../services';
+import type { MovieCard as MovieCardType } from '../types';
+import { MovieCard } from './movie-card';
 
-const MovieScore = () => {
-    return (
-        <div
-            css={{
-                position: 'absolute',
-                width: 34,
-                height: 34,
-                borderRadius: 50,
-                backgroundColor: '#081c22',
-                display: 'flex',
-                alignItems: 'center',
-                top: '-17px'
-            }}
-        >
-            <span css={{ flex: 1, color: Colors.white, fontSize: 12, textAlign: 'center' }}>60%</span>
-        </div>
-    );
-};
-
-const MovieCard = () => {
-    return (
-        <div
-            css={{
-                width: 180,
-                height: 390,
-                background: 'pink',
-                borderRadius: 12,
-                display: 'flex',
-                flexFlow: 'column',
-                overflow: 'hidden',
-                margin: 8
-            }}
-        >
-            <div css={{ flex: 2, boxShadow: '0 0 10px 1px rgba(0,0,0,0.1)' }}>img</div>
-
-            <div css={{ flex: 1, position: 'relative', padding: '24px 12px 12px' }}>
-                <MovieScore />
-                <div css={{ display: 'flex', flexFlow: 'column' }}>
-                    <span>Don't Breathe 2</span>
-                    <span>date</span>
-                </div>
-            </div>
-        </div>
-    );
-};
 export const MoviesHomePage = () => {
-    const isMobile = useMedia({ query: '(max-width: 559px)' });
+    const [state, setListState] = useState<'loading' | 'loaded' | 'failed'>('loading');
+    const [moviesList, setMoviesList] = useState<MovieCardType[]>([]);
+
+    useEffect(() => {
+        fetchMovies({})
+            .then((list) => {
+                setMoviesList(list);
+                setListState('loaded');
+            })
+            .catch(() => setListState('failed'));
+    }, []);
 
     return (
         <>
@@ -62,11 +31,9 @@ export const MoviesHomePage = () => {
                 <div css={{ width: Theme.maxPrimaryPageWidth, maxWidth: Theme.maxPrimaryPageWidth }}>
                     <div>filters & sort</div>
                     <div css={{ display: 'flex', flexWrap: 'wrap', margin: '0 8px' }}>
-                        <MovieCard />
-                        <MovieCard />
-                        <MovieCard />
-                        <MovieCard />
-                        <MovieCard />
+                        {state === 'loading' && <p>loading ... </p>}
+                        {state === 'failed' && <p>opps something wrong happened ... </p>}
+                        {state === 'loaded' && moviesList?.map((movie) => <MovieCard key={movie?.id} movie={movie} />)}
                     </div>
                 </div>
             </div>
