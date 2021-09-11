@@ -9,12 +9,15 @@ import { Movie as MovieInterface } from '../types';
 import { Colors, Theme } from '../theme';
 import { MovieHeader } from './movie-header';
 import { MoviePageProvider } from './movie-page-context';
+import { Cast } from './cast-section';
+import { AsideMovie } from './movie-side-section';
 
 const Main = styled.main({
     display: 'flex',
     width: 'calc(100vw - 80px)',
     maxWidth: Theme.maxPrimaryPageWidth,
     margin: 40,
+    alignSelf: 'center',
     '@media screen and (max-width: 910px)': {
         flexFlow: 'column'
     }
@@ -36,7 +39,7 @@ export const Movie = () => {
             .catch(() => setListState('failed'));
     }, [id]);
 
-    console.log(movie);
+    console.log({ movie });
 
     return (
         <>
@@ -46,8 +49,17 @@ export const Movie = () => {
                 <MoviePageProvider value={movie}>
                     <MovieHeader />
                     <Main>
-                        <section>actors</section>
-                        <aside>info</aside>
+                        <section
+                            css={{
+                                width: 840,
+                                '@media screen and (max-width: 910px)': { width: 'calc(100vw - 80px)' }
+                            }}
+                        >
+                            <Cast />
+                        </section>
+                        <aside>
+                            <AsideMovie />
+                        </aside>
                     </Main>
                 </MoviePageProvider>
             )}

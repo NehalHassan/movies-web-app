@@ -50,3 +50,42 @@ export const fetchMovieById = async (movieId: string) => {
         throw new Error(error?.response?.data?.errors[0]);
     }
 };
+
+export const fetchCastByMovieId = async (movieId: string) => {
+    try {
+        const {
+            data: { cast }
+        } = await axios.get(`${movieUrl}/${movieId}/credits`, {
+            params: {
+                api_key: apiKey,
+                language: 'en_US'
+            }
+        });
+        const data = cast.map((c: any) => ({
+            ...c,
+            id: c.cast_id,
+            img: 'https://image.tmdb.org/t/p/w200' + c['profile_path']
+        }));
+
+        console.log(data);
+        return data;
+    } catch (error: any) {
+        throw new Error(error?.response?.data?.errors[0]);
+    }
+};
+
+export const fetchMovieKeyWordsByMovieId = async (movieId: string) => {
+    try {
+        const {
+            data: { keywords }
+        } = await axios.get(`${movieUrl}/${movieId}/keywords`, {
+            params: {
+                api_key: apiKey,
+                language: 'en_US'
+            }
+        });
+        return keywords;
+    } catch (error: any) {
+        throw new Error(error?.response?.data?.errors[0]);
+    }
+};
