@@ -67,7 +67,9 @@ const Header = () => {
                     }
                 }}
             >
-                <Logo width={isMobile ? 80 : 154} height={64} />
+                <NavLink to="/">
+                    <Logo width={isMobile ? 80 : 154} height={64} />
+                </NavLink>
                 <ul css={{ flex: 1, listStyle: 'none', margin: 'auto', paddingLeft: 24 }}>
                     <MenuItem to="/movies/now-playing" text="Playing Now" />
                     <MenuItem to="/movies/upcoming" text="Upcoming" />

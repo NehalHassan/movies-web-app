@@ -26,7 +26,6 @@ export const MoviesHomePage = () => {
 
     return (
         <div css={{ width: '100vw', maxWidth: Theme.maxPrimaryPageWidth }}>
-            <div>filters & sort</div>
             <div css={{ display: 'flex', flexWrap: 'wrap', margin: '0 8px' }}>
                 {state === 'loading' && <p>loading ... </p>}
                 {state === 'failed' && <p>opps something wrong happened ... </p>}
