@@ -1,7 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
-import { useMedia } from 'react-media';
-import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { Colors } from '../theme';

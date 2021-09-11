@@ -1,13 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { fetchMovieKeyWordsByMovieId } from '../services';
 
-import { Colors, Theme } from '../theme';
+import { Colors } from '../theme';
 import { useMoviePageContext } from './movie-page-context';
-import PlaceHolderImg from './placeholder-img.svg';
 
 const ListItem = styled.li({
     display: 'flex',

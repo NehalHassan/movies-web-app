@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 
 import { fetchMovieById } from '../services';
 import { Movie as MovieInterface } from '../types';
-import { Colors, Theme } from '../theme';
+import { Theme } from '../theme';
 import { MovieHeader } from './movie-header';
 import { MoviePageProvider } from './movie-page-context';
 import { Cast } from './cast-section';

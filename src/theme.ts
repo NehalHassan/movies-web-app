@@ -29,7 +29,4 @@ enum Colors {
     accountRed = 'rgb(212,2,66)'
 }
 
-export type ThemeItemName = keyof typeof Theme;
-export type ColorName = keyof typeof Colors;
-
 export { Theme, Colors };

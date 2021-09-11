@@ -1,11 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
-import { useMedia } from 'react-media';
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-import { Theme, Colors } from '../theme';
+import { Colors } from '../theme';
 import type { MovieCard as MovieCardType } from '../types';
 import { MovieRate } from '../components/movie-rate';
 

@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { fetchCastByMovieId } from '../services';
 
-import { Colors, Theme } from '../theme';
-import { useMoviePageContext } from './movie-page-context';
+import { Colors } from '../theme';
 import PlaceHolderImg from './placeholder-img.svg';
 
 const CastContainer = styled.div(({ showScrollBar }: { showScrollBar: boolean }) => ({
