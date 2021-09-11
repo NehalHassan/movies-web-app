@@ -28,18 +28,13 @@ export const MoviesHomePage = () => {
     }, [listType]);
 
     return (
-        <>
-            <Header />
-            <div css={{ display: 'flex', justifyContent: 'center' }}>
-                <div css={{ width: Theme.maxPrimaryPageWidth, maxWidth: Theme.maxPrimaryPageWidth }}>
-                    <div>filters & sort</div>
-                    <div css={{ display: 'flex', flexWrap: 'wrap', margin: '0 8px' }}>
-                        {state === 'loading' && <p>loading ... </p>}
-                        {state === 'failed' && <p>opps something wrong happened ... </p>}
-                        {state === 'loaded' && moviesList?.map((movie) => <MovieCard key={movie?.id} movie={movie} />)}
-                    </div>
-                </div>
+        <div css={{ width: Theme.maxPrimaryPageWidth, maxWidth: Theme.maxPrimaryPageWidth }}>
+            <div>filters & sort</div>
+            <div css={{ display: 'flex', flexWrap: 'wrap', margin: '0 8px' }}>
+                {state === 'loading' && <p>loading ... </p>}
+                {state === 'failed' && <p>opps something wrong happened ... </p>}
+                {state === 'loaded' && moviesList?.map((movie) => <MovieCard key={movie?.id} movie={movie} />)}
             </div>
-        </>
+        </div>
     );
 };
