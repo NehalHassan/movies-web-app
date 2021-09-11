@@ -3,6 +3,7 @@ import type { ApiMoviesListTypes, Movie } from '../types';
 
 const apiKey = '4f298a53e552283bee957836a529baec';
 const url = 'https://api.themoviedb.org/3';
+const movieUrl = `${url}/movie`;
 
 export const fetchMovies = async ({ listType, page }: { listType?: ApiMoviesListTypes; page?: number }) => {
     const playingNowUrl = `${url}/movie/${listType ?? 'popular'}`;
@@ -31,7 +32,21 @@ export const fetchMovies = async ({ listType, page }: { listType?: ApiMoviesList
 
         return data;
     } catch (error: any) {
-        console.log(error.response.data);
+        throw new Error(error?.response?.data?.errors[0]);
+    }
+};
+
+export const fetchMovieById = async (movieId: string) => {
+    try {
+        const { data } = await axios.get(`${movieUrl}/${movieId}`, {
+            params: {
+                api_key: apiKey,
+                language: 'en_US'
+            }
+        });
+        console.log(data);
+        return data;
+    } catch (error: any) {
         throw new Error(error?.response?.data?.errors[0]);
     }
 };
