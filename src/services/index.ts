@@ -4,10 +4,10 @@ import type { ApiMoviesListTypes, Movie } from '../types';
 const apiKey = '4f298a53e552283bee957836a529baec';
 const url = 'https://api.themoviedb.org/3';
 const movieUrl = `${url}/movie`;
+const posterUrl = 'https://image.tmdb.org/t/p/original/';
 
 export const fetchMovies = async ({ listType, page }: { listType?: ApiMoviesListTypes; page?: number }) => {
     const playingNowUrl = `${url}/movie/${listType ?? 'popular'}`;
-    const posterUrl = 'https://image.tmdb.org/t/p/original/';
 
     try {
         const {
@@ -44,8 +44,8 @@ export const fetchMovieById = async (movieId: string) => {
                 language: 'en_US'
             }
         });
-        console.log(data);
-        return data;
+
+        return { ...data, backdrop_path: posterUrl + data.backdrop_path, poster_path: posterUrl + data.poster_path };
     } catch (error: any) {
         throw new Error(error?.response?.data?.errors[0]);
     }
