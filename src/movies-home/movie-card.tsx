@@ -52,7 +52,7 @@ export const MovieCard = ({ movie }: { movie: MovieCardType }) => {
                 <Image url={movie.poster} title={movie?.title} />
 
                 <div css={{ position: 'relative', padding: '24px 12px 12px' }}>
-                    <div css={{ position: 'absolute', top: '-17px' }}>
+                    <div css={{ position: 'absolute', top: '-24px' }}>
                         <MovieRate rate={movie.rating * 10} />
                     </div>
 
