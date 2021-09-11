@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { Theme, Colors } from '../theme';
 import type { MovieCard as MovieCardType } from '../types';
-import { MovieRate } from './movie-rate';
+import { MovieRate } from '../components/movie-rate';
 
 const Card = styled.div({
     width: 180,
@@ -52,7 +52,9 @@ export const MovieCard = ({ movie }: { movie: MovieCardType }) => {
                 <Image url={movie.poster} title={movie?.title} />
 
                 <div css={{ position: 'relative', padding: '24px 12px 12px' }}>
-                    <MovieRate rate={movie.rating * 10} />
+                    <div css={{ position: 'absolute', top: '-17px' }}>
+                        <MovieRate rate={movie.rating * 10} />
+                    </div>
 
                     <div css={{ display: 'flex', flexFlow: 'column' }}>
                         <MovieTitle title={movie?.title}>{movie?.title}</MovieTitle>

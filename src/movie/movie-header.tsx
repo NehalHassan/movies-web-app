@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 import { Colors, Theme } from '../theme';
 import { useMoviePageContext } from './movie-page-context';
+import { MovieRate } from '../components/movie-rate';
 
 const Poster = styled.div(({ img }: { img: string }) => ({
     backgroundSize: 'cover',
@@ -121,7 +122,9 @@ export const MovieHeader = () => {
                                 ))}
                         </p>
 
-                        <div css={{ margin: 8 }}>MovieRate</div>
+                        <div css={{ margin: 8 }}>
+                            <MovieRate width={56} height={56} rate={movie.vote_average * 10} />
+                        </div>
 
                         <div css={{ marginTop: 32 }}>
                             <h3
