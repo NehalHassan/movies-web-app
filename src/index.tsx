@@ -15,25 +15,33 @@ const App = styled.div({
     alignContent: 'center'
 });
 
+const AppContainer = styled.div({
+    display: 'flex',
+    flexFlow: 'column',
+    alignItems: 'center'
+});
+
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Header />
-            <App>
-                <Switch>
-                    <Route exact path="/">
-                        <MoviesHomePage />
-                    </Route>
+            <AppContainer>
+                <Header />
+                <App>
+                    <Switch>
+                        <Route exact path="/">
+                            <MoviesHomePage />
+                        </Route>
 
-                    <Route path="/movies/:listType">
-                        <MoviesHomePage />
-                    </Route>
+                        <Route path="/movies/:listType">
+                            <MoviesHomePage />
+                        </Route>
 
-                    <Route exact path="/movie/:id">
-                        <Movie />
-                    </Route>
-                </Switch>
-            </App>
+                        <Route exact path="/movie/:id">
+                            <Movie />
+                        </Route>
+                    </Switch>
+                </App>
+            </AppContainer>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

@@ -10,7 +10,7 @@ const Poster = styled.div(({ img }: { img: string }) => ({
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${img})`,
     height: 510,
-    width: '100%',
+    width: '100vw',
     zIndex: 1,
     '@media screen and (max-width: 910px)': {
         height: 'fit-content'
