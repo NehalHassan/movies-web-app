@@ -12,10 +12,12 @@ ReactDOM.render(
                 <Route exact path="/">
                     <MoviesHomePage />
                 </Route>
-                <Route exact path="/movie/:listType">
+
+                <Route path="/movies/:listType">
                     <MoviesHomePage />
                 </Route>
-                <Route path="/movie">
+
+                <Route exact path="/movie/:id">
                     <Movie />
                 </Route>
             </Switch>
