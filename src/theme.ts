@@ -1,6 +1,6 @@
 enum Theme {
     imageBorderRadius = 8,
-    maxPrimaryPageWidth = 1400
+    maxPrimaryPageWidth = 1100
 }
 
 enum Colors {

@@ -10,7 +10,9 @@ import './index.css';
 
 const App = styled.div({
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexFlow: 'column',
+    alignContent: 'center'
 });
 
 ReactDOM.render(
